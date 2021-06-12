@@ -16,6 +16,8 @@ public class Alibris {
     private WebDriver driver;
     private Map<String, Object> vars;
     JavascriptExecutor js;
+
+
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "drivers/chrome/90/chromedriver.exe");
@@ -25,14 +27,18 @@ public class Alibris {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(6000, TimeUnit.MILLISECONDS);
     }
+
+
     @After
     public void tearDown() {
         driver.quit();
     }
-    @Test
-    public void testealibri() {
-        driver.get("https://www.alibris.com/");
 
+
+    @Test
+    public void testAlibris () {
+
+        driver.get("https://www.alibris.com/");
         driver.findElement(By.id("searchBox")).click();
         driver.findElement(By.id("searchBox")).sendKeys("the art of software testing");
         driver.findElement(By.id("searchBox")).sendKeys(Keys.ENTER);
